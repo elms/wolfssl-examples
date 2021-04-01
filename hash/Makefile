@@ -1,6 +1,6 @@
 CC := gcc -fsanitize=address
 program_NAME := sha256-hash
-program_C_SRCS := $(wildcard *.c)
+program_C_SRCS := sha256-hash.c
 program_CXX_SRCS := $(wildcard *.cpp)
 program_C_OBJS := ${program_C_SRCS:.c=.o}
 program_CXX_OBJS := ${program_CXX_SRCS:.cpp=.o}
@@ -29,6 +29,9 @@ all: $(program_NAME)
 
 $(program_NAME): $(program_OBJS)
 	$(CC) $(CPPFLAGS) $(program_OBJS) -o $(program_NAME) $(LDFLAGS) 
+
+sha-continue: sha-continue.o
+	$(CC) $(CPPFLAGS) $^ -o $@ $(LDFLAGS) 
 
 clean:
 	@- $(RM) $(program_NAME)
