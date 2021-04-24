@@ -19,6 +19,7 @@
   <depend>pal</depend>
   <depend>deos-time</depend>
   <depend>ansi</depend>
+  <depend>wolfsentry</depend>
   <gccCppCompileDirectories targetArch="arm">$(DESK_DIR)/arm/include</gccCppCompileDirectories>
   <gccCppCompileDirectories targetArch="ppc">$(DESK_DIR)/ppc/include</gccCppCompileDirectories>
   <gccCppCompileDirectories targetArch="x86">$(DESK_DIR)/x86/include</gccCppCompileDirectories>
@@ -34,6 +35,13 @@
   <gccCCompileDirectories>$(PROJECT_DIR.wolfssl)/../../../..</gccCCompileDirectories>
   <gccCCompileDirectories>$(PROJECT_DIR.wolfssl)/..</gccCCompileDirectories>
   <gccCCompileDirectories>$(PROJECT_DIR.printx)</gccCCompileDirectories>
+  <gccCCompileDirectories>$(PROJECT_DIR.deos-wolfsentry-test)/lib/wolfSentry</gccCCompileDirectories>
   <gccCCompileDefinedMacros>MALLOC_PAGES=512</gccCCompileDefinedMacros>
   <gccCCompileDefinedMacros>WOLFSSL_USER_SETTINGS</gccCCompileDefinedMacros>
+  <gccCppLinkDirectories fpuType="none" targetArch="ppc">$(PROJECT_DIR.wolfssl)/output/powerpc-motorola-elf/diagnostic</gccCppLinkDirectories>
+  <gccCppLinkDirectories fpuType="none" targetArch="ppc">$(PROJECT_DIR.printx)/output/powerpc-motorola-elf/diagnostic</gccCppLinkDirectories>
+  <gccCppLinkDirectories targetArch="ppc">$(PROJECT_DIR.deos-wolfsentry-test)/output/powerpc-motorola-elf/diagnostic</gccCppLinkDirectories>
+  <gccCppLinkDirectories targetArch="arm">$(DESK_DIR)/arm/appbin</gccCppLinkDirectories>
+  <gccCppLinkDirectories targetArch="ppc">$(DESK_DIR)/ppc/appbin</gccCppLinkDirectories>
+  <gccCppLinkDirectories targetArch="x86">$(DESK_DIR)/x86/appbin</gccCppLinkDirectories>
 </project>
