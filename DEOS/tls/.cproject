@@ -17,6 +17,8 @@
 		<pathentry kind="mac" name="DIAGNOSTIC" path="" value=""/>
 		<pathentry kind="mac" name="WOLFSSL_USER_SETTINGS" path="" value=""/>
 		<pathentry kind="mac" name="MALLOC_PAGES" path="" value="512"/>
+		<pathentry kind="mac" name="TCP_SERVER_IP_ADDR" path="" value="\&quot;192.168.86.55\&quot;"/>
+		<pathentry kind="mac" name="SENTRY_REJECT" path="" value="0"/>
 		<pathentry kind="mac" name="__OpenArbor_editor" path="" value=""/>
 		<pathentry kind="mac" name="__DBL_MIN_EXP__" path="" value="(-1021)"/>
 		<pathentry kind="mac" name="__FLT32X_MAX_EXP__" path="" value="1024"/>

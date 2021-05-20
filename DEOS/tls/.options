@@ -35,9 +35,11 @@
   <gccCCompileDirectories>$(PROJECT_DIR.wolfssl)/../../../..</gccCCompileDirectories>
   <gccCCompileDirectories>$(PROJECT_DIR.wolfssl)/..</gccCCompileDirectories>
   <gccCCompileDirectories>$(PROJECT_DIR.printx)</gccCCompileDirectories>
-  <gccCCompileDirectories>$(PROJECT_DIR.deos-wolfsentry-test)/lib/wolfSentry</gccCCompileDirectories>
+  <gccCCompileDirectories>$(PROJECT_DIR.wolfsentry)/lib/wolfSentry</gccCCompileDirectories>
   <gccCCompileDefinedMacros>MALLOC_PAGES=512</gccCCompileDefinedMacros>
   <gccCCompileDefinedMacros>WOLFSSL_USER_SETTINGS</gccCCompileDefinedMacros>
+  <gccCCompileDefinedMacros>TCP_SERVER_IP_ADDR=\"192.168.86.55\"</gccCCompileDefinedMacros>
+  <gccCCompileDefinedMacros>SENTRY_REJECT=0</gccCCompileDefinedMacros>
   <gccCppLinkDirectories fpuType="none" targetArch="ppc">$(PROJECT_DIR.wolfssl)/output/powerpc-motorola-elf/diagnostic</gccCppLinkDirectories>
   <gccCppLinkDirectories fpuType="none" targetArch="ppc">$(PROJECT_DIR.printx)/output/powerpc-motorola-elf/diagnostic</gccCppLinkDirectories>
   <gccCppLinkDirectories targetArch="ppc">$(PROJECT_DIR.deos-wolfsentry-test)/output/powerpc-motorola-elf/diagnostic</gccCppLinkDirectories>

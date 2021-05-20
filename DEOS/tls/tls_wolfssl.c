@@ -75,13 +75,17 @@ int setupTransport(clientConnectionHandleType* connectionHandle,
 
 #include "ca_cert.h"
 
-/* 172.217.3.174 is the IP address of https://www.google.com */
+#ifndef TCP_SERVER_IP_ADDR
 #if 1
-#  define TCP_SERVER_IP_ADDR "192.168.19.1"
-#  define TCP_SERVER_PORT 11111
+#  define TCP_SERVER_IP_ADDR "192.168.1.19"
 #else
+/* 172.217.3.174 is the IP address of https://www.google.com */
 #  define TCP_SERVER_IP_ADDR "172.217.3.174"
 #  define TCP_SERVER_PORT 443
+#endif
+#endif
+#ifndef TCP_SERVER_PORT
+#  define TCP_SERVER_PORT 11111
 #endif
 
 void wolfssl_client_test(uintData_t statusPtr) {
@@ -419,16 +423,18 @@ static int wolfSentry_NetworkFilterCallback(
         *decision = WOLFSSL_NETFILTER_PASS;
     }
 
-    printf("wolfSentry got network filter callback: family=%d proto=%d rport=%d"
-           "lport=%d raddr=%s laddr=%s interface=%d; decision=%d (%s)\n",
-           data->remote.sa_family,
-           data->remote.sa_proto,
+    printf("wolfSentry got network filter callback: family=%d proto=%d\n",
+    		data->remote.sa_family,
+            data->remote.sa_proto);
+    printf(" rport=%d lport=%d raddr=%s laddr=%s\n",
            data->remote.sa_port,
            data->local.sa_port,
            "",//inet_ntop(data->remote.sa_family, data->remote.addr, inet_ntop_buf,
               //       sizeof inet_ntop_buf),
-           "",//inet_ntop(data->local.sa_family, data->local.addr, inet_ntop_buf2,
+           ""//inet_ntop(data->local.sa_family, data->local.addr, inet_ntop_buf2,
                //      sizeof inet_ntop_buf2),
+		   );
+    printf("interface=%d; decision=%d (%s)\n",
            data->remote.interface,
            *decision,
            *decision == WOLFSSL_NETFILTER_REJECT ? "REJECT" :
@@ -563,7 +569,7 @@ void wolfssl_server_test(uintData_t statusPtr)
         if (wolfsentry_ret >= 0) {
             if ((wolfsentry_ret = wolfsentry_route_table_default_policy_set(
                      wolfsentry, table,
-#if 0
+#if SENTRY_REJECT
                      WOLFSENTRY_ACTION_RES_REJECT|WOLFSENTRY_ACTION_RES_STOP
 #else
                      WOLFSENTRY_ACTION_RES_ACCEPT
@@ -785,8 +791,8 @@ int main (void)
     printx("wolfSSL TLS tests\n");
 
     // taken from hello-world-timer.cpp
-    struct tm starttime = { 0, 30, 12, 1, 12, 2021-1900, 0, 0, 0 };
-    // startdate: Dec 1 2021, 12:30:00
+    struct tm starttime = { 0, 30, 12, 1, 5, 2021-1900, 0, 0, 0 };
+    // startdate: May 1 2021, 12:30:00
     struct timespec ts_date;
     ts_date.tv_sec  = mktime(&starttime);
     ts_date.tv_nsec = 0LL;

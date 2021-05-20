@@ -213,8 +213,8 @@ int main(void)
   VideoOutMain << "wolfSSL DTLS client Example";
 
   // taken from hello-world-timer.cpp
-  struct tm starttime = { 0, 30, 12, 1, 12, 2020-1900, 0, 0, 0 };
-  // startdate: Dev 1 2020, 12:30:00
+  struct tm starttime = { 0, 30, 12, 1, 5, 2021-1900, 0, 0, 0 };
+  // startdate: May 1 2021, 12:30:00
   struct timespec ts_date;
   ts_date.tv_sec  = mktime(&starttime);
   ts_date.tv_nsec = 0LL;
